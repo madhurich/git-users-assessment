@@ -37,4 +37,8 @@ export class AppComponent {
     this.pageNumber++;
     this.setRepos(this.pageNumber);
   }
+
+  uniqueRepoId(index, repo) {
+    return repo.id;
+  }
 }

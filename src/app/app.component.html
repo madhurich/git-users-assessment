@@ -4,10 +4,10 @@
       [infiniteScrollThrottle]="150"
       (scrolled)="onScrollDown()"
     >
-    <div *ngFor="let repo of repos">
+    <div *ngFor="let repo of repos; trackBy:uniqueRepoId">
         <div class="repo-row">
             <div class="avatar">
-                <img [src]="repo.owner.avatar_url" width="350" height="300">
+                <img [src]="repo.owner.avatar_url" width="350" height="350">
             </div>
             <div class="repo-details">
                 <p class="repo-name">{{repo.name}}</p>
