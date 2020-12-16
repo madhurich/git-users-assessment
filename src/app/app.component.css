@@ -1,0 +1,32 @@
+.repo-row {
+    display: flex;
+    padding: 15px;
+}
+
+.avatar {
+    flex: 1;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+.repo-details {
+    flex: 3 200px;
+    display: flex;
+    flex-flow: column;
+    padding-left: 15px;
+}
+
+.repo-details div {
+    display: flex;
+}
+
+.repo-details div p {
+    flex: 1;
+}
+
+.repo-details .repo-name {
+    font-size: 50px;
+}
+
+.repo-details p {
+    font-size: 20px;
+}

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  repos;
+  repos: Array<any>;
 
   constructor(private http: HttpClient) {
     this.getUserRepos();
