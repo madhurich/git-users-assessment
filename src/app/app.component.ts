@@ -7,12 +7,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   repos: Array<any>;
+  pageNumber = 1;
 
   constructor(private http: HttpClient) {
-    this.getUserRepos();
+    this.setRepos(this.pageNumber)
   }
 
-  getUserRepos() {
+  setRepos(pageNum) {
+    this.getUserRepos(pageNum)
+      .subscribe((res: any) => {
+        this.repos = this.repos ? [...this.repos, ...res.items] : res.items; 
+      });
+  }
+
+  getUserRepos(pageNum) {
     // 1.	Repository name - name
     // 2.	Repository description 
     // 3.	Number of stars for the repo. stargazers_count
@@ -20,11 +28,13 @@ export class AppComponent {
     // 5.	Username and avatar of the owner. login avatar_url
     // 6.	As a User I should be able to keep scrolling and new results should appear (pagination).
 
-    const url = `https://api.github.com/search/repositories?q=created:%3E2020-05-22&sort=stars&order=desc&page=1`;
-    return this.http.get(url)
-      .subscribe((res: any) => {
-        console.log(res);
-        this.repos = res.items;
-      })
+    const url = `https://api.github.com/search/repositories?q=created:%3E2020-05-22&sort=stars&order=desc&page=${pageNum}`;
+    return this.http.get(url);
+  }
+  
+  onScrollDown() {
+    console.log('scrolled down');
+    this.pageNumber++;
+    this.setRepos(this.pageNumber);
   }
 }
