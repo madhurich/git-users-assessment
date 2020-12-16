@@ -5,8 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## To run in local
 
 1. clone this repo in your local
-2. run npm install - to install all required packages
-3. run npm start to start server
+2. run 'npm install' - to install all required packages
+3. run 'npm start' to start server
 4. server will be started on port 4200, goto http://localhost:4200
 
 ## package used to achieve scrolling
